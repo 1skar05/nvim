@@ -1,17 +1,15 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
-	ensure_installed = { "lua_ls", "tsserver", "html", "tailwindcss", "intelephense", "jsonls", "jdtls", "eslint", "emmet_ls" }
+	ensure_installed = { "lua_ls", "cssls", "tsserver", "html", "tailwindcss", "intelephense", "jsonls", "jdtls", "eslint", "emmet_ls", "cssmodules_ls" }
 })
 
 
-local on_attach = function(_, _)
-	vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-	
-	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
-	vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
-	vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+local on_attach = function(client, bufnr)
+	if client.server_capabilities.documentFormattingProvider then
+		vim.api.nvim_command [[augroup Format]]
+		vim.api.nvim_command [[autocmd! * <buffer>]]
+		vim.api.nvim_command [[autogroup END]]
+	end
 end
 
 local lspconfig = require('lspconfig')
@@ -29,6 +27,7 @@ lspconfig.lua_ls.setup {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+		checkThirdParty = false,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
@@ -41,7 +40,6 @@ lspconfig.lua_ls.setup {
 lspconfig.emmet_ls.setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
     init_options = {
       html = {
         options = {
@@ -51,7 +49,28 @@ lspconfig.emmet_ls.setup({
       },
     }
 })
-lspconfig.tsserver.setup {}
-lspconfig.solargraph.setup{
-	on_attach = on_attach
+lspconfig.tsserver.setup {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetype = {"typescript", "typescriptreact", "typescript.tsx"},
+	cmd = { "typescript-language-server", "--stdio" }
 }
+lspconfig.cssls.setup {
+	capabilities = capabilities,
+}
+lspconfig.cssmodules_ls.setup {
+	capabilities = capabilities,
+}
+
+--config php
+lspconfig.intelephense.setup{
+	capabilities = capabilities,
+}
+
+--config html
+lspconfig.html.setup{
+	capabilities = capabilities,
+}
+
+--config tailwindcss
+lspconfig.tailwindcss.setup {}

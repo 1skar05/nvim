@@ -33,28 +33,56 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'kylechui/nvim-surround'
   use 'nvim-lualine/lualine.nvim'
+	--icons
   use 'nvim-tree/nvim-web-devicons'
+use 'mortepau/codicons.nvim'
   use 'preservim/tagbar'
   use 'terryma/vim-multiple-cursors'
-  use 'rstacruz/vim-closer'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'onsails/lspkind-nvim'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
+	use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  
+  --lsp
   use {
 	  'williamboman/mason.nvim',
 	  'williamboman/mason-lspconfig.nvim',
 	  'neovim/nvim-lspconfig',
+	  'jose-elias-alvarez/null-ls.nvim',
 	  run = ':MasonUpdate',
   }
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-ts-autotag'
+	use	'windwp/nvim-autopairs'
 
+	--bufferline
+	use 'akinsho/nvim-bufferline.lua'
+	use 'norcalli/nvim-colorizer.lua'
+
+  --treesitter
+  use {
+	'nvim-treesitter/nvim-treesitter',
+	run = ':TSUpdate',
+  }
+
+	--lspsaga
+	use 'glepnir/lspsaga.nvim'
+
+	--noice
+	use {
+		'folke/noice.nvim',
+		requires = {{'MunifTanjim/nui.nvim'}, {'rcarriga/nvim-notify'}}
+	}	
   --transparent background
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
