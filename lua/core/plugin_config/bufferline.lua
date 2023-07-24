@@ -9,7 +9,7 @@ bufferline.setup {
 		right_mouse_command = 'bdelete %d',
 		left_mouse_command = 'buffer %d',
 		separator_style = 'slant',
-		always_show_bufferline = true,
+		always_show_bufferline = false,
 		show_buffer_clode_icon = false,
 		show_close_icon = false,
 		color_icons = true

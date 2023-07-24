@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+-- load friendly snippet
 require('luasnip.loaders.from_vscode').lazy_load()
 
 
@@ -13,7 +14,10 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-o>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ 
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true
+		}),
 	}),
 	snippet = {
 	expand = function(arg)
@@ -21,12 +25,13 @@ cmp.setup({
 		end,
 	},
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 		{ name = 'buffer' },
+		{ name = 'path' },
+		{ name = 'nvim_lsp' },
 	}),
 	formatting = {
-		format = lspkind.cmp_format({ 
+		format = lspkind.cmp_format({
 			wirth_text = false,
 			maxwidth = 50,
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)

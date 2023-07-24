@@ -20,6 +20,3 @@ vim.o.encoding = "UTF-8"
 
 -- Colorscheme
 vim.cmd.colorscheme 'tokyonight-moon'
--- LSP
---vim.api.nvim_set_keymap("i", "<Tab>", "<cmd>pumvisible() ? coc#_select_confirm() : '<Tab>'<CR>", { noremap = true })
-

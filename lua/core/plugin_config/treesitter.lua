@@ -13,6 +13,8 @@ ts.setup {
 	ensure_installed = {
 		'tsx',
 		'lua',
+		'vim',
+		'regex',
 		'json',
 		'css',
 		'javascript',
