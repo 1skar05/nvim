@@ -171,7 +171,7 @@ ins_left({
 		return msg
 	end,
 	-- icon = "lsp:",
-	-- color = { fg = colors.white, gui = "bold" },
+	color = { gui = "italic" },
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -180,10 +180,6 @@ ins_left({
 	function()
 		return "%="
 	end,
-})
-ins_left({
-	"os.date('%H:%M')",
-	color = { fg = colors.white, gui = "bold" },
 })
 
 -- Add components to right sections
@@ -217,6 +213,10 @@ ins_right({
 	cond = conditions.hide_in_width,
 })
 
+ins_right({
+	"os.date('%H:%M')",
+	color = { fg = colors.white, gui = "bold" },
+})
 ins_right({
 	function()
 		return "▊"
