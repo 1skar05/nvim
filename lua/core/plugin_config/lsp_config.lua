@@ -1,6 +1,6 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
-	ensure_installed = { "lua_ls", "cssls", "tsserver", "html", "tailwindcss", "intelephense", "jsonls", "jdtls", "eslint", "emmet_ls", "cssmodules_ls" }
+	ensure_installed = { "lua_ls", "cssls", "tsserver", "html", "tailwindcss", "intelephense", "jsonls", "jdtls", "eslint", "emmet_ls", "cssmodules_ls"}
 })
 
 
@@ -74,3 +74,4 @@ lspconfig.html.setup{
 
 --config tailwindcss
 lspconfig.tailwindcss.setup {}
+

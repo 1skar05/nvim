@@ -1,5 +1,5 @@
 -- 1skar05 @ 20.7.2023
--- leader should be near top or at top to work
+-- mapleader should be near top or at top to work
 vim.g.mapleader = " "
 
 vim.opt.number = true

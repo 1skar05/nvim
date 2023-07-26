@@ -47,6 +47,8 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 	use 'rafamadriz/friendly-snippets'
+
+	--telescope and plugins
 	use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'nvim-telescope/telescope.nvim',
@@ -96,6 +98,10 @@ return packer.startup(function(use)
 }
 	-- Todo hightlight
 	use 'AmeerTaweel/todo.nvim'
+
+	-- gitsigns
+	use 'lewis6991/gitsigns.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
