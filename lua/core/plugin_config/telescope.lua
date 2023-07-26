@@ -6,6 +6,9 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require("telescope").extensions.file_browser.actions
+
+local keymap = vim.keymap
+
 telescope.setup({
 	defaults = {
 		mappings = {
@@ -39,12 +42,12 @@ telescope.setup({
 
 telescope.load_extension("file_browser")
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
-vim.keymap.set("n", "<leader>sf", function()
+keymap.set("n", "<leader>ff", builtin.find_files, {})
+keymap.set("n", "<leader>fg", builtin.live_grep, {})
+keymap.set("n", "<leader>fb", builtin.buffers, {})
+keymap.set("n", "<leader>fh", builtin.help_tags, {})
+keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+keymap.set("n", "<leader>sf", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
@@ -55,3 +58,4 @@ vim.keymap.set("n", "<leader>sf", function()
 		initial_mode = "normal",
 	})
 end)
+keymap.set("n", "<leader>td", "<Cmd>TodoTelescope<CR>", {})
