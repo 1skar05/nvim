@@ -4,11 +4,9 @@ if not status_ok then return end
 ts.setup {
 	highlight = {
 		enable = true,
-		disable = {},
 	},
 	indent = {
 		enable = true,
-		disabe = {},
 	},
 	ensure_installed = {
 		'tsx',
@@ -21,7 +19,14 @@ ts.setup {
 		'jsdoc',
 		'json5',
 		'markdown',
-		'markdown_inline'
+		'markdown_inline',
+		'bash',
+		'html',
+		'svelte',
+		'vue',
+		'dockerfile',
+		'gitignore',
+		'yaml',
 	},
 	autotag = {
 		enable = true,

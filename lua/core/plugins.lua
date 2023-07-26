@@ -61,9 +61,12 @@ return packer.startup(function(use)
 	  'williamboman/mason.nvim',
 	  'williamboman/mason-lspconfig.nvim',
 		'neovim/nvim-lspconfig',
-	  'jose-elias-alvarez/null-ls.nvim',
 	  run = ':MasonUpdate',
   }
+	--formartting & linting
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'jayp0521/mason-null-ls.nvim'
+
   use 'windwp/nvim-ts-autotag'
 	use	'windwp/nvim-autopairs'
 
