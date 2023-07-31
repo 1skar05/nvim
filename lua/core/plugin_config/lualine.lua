@@ -100,7 +100,7 @@ ins_left({
 	color = function()
 		-- auto change color according to neovims mode
 		local mode_color = {
-			n = colors.red,
+			n = colors.white,
 			i = colors.green,
 			v = colors.blue,
 			[""] = colors.blue,
@@ -156,7 +156,7 @@ ins_left({
 ins_left({
 	-- Lsp server name .
 	function()
-		local msg = "No Active Lsp"
+		local msg = "none"
 		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 		local clients = vim.lsp.get_active_clients()
 		if next(clients) == nil then
