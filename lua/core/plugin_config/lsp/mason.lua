@@ -16,10 +16,22 @@ end
 mason.setup()
 
 mason_lspconfig.setup({
-ensure_installed = { "lua_ls", "cssls", "tsserver", "html", "tailwindcss", "intelephense", "jsonls", "jdtls", "eslint", "emmet_ls", "cssmodules_ls"}
-
+	ensure_installed = {
+		"lua_ls",
+		"cssls",
+		"tsserver",
+		"html",
+		"tailwindcss",
+		"intelephense",
+		"jsonls",
+		"jdtls",
+		"eslint",
+		"emmet_ls",
+		"cssmodules_ls",
+	},
 })
 
 mason_null_ls.setup({
-	ensure_installed = { "prettier", "stylua", "flake8", "eslint_d" }
+	automatic_installation = true,
+	ensure_installed = { "prettier", "stylua", "flake8", "eslint_d" },
 })
